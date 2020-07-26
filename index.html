@@ -1,59 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link 
-        rel="stylesheet" 
-        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" 
-        crossorigin="anonymous">
-    <link 
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link 
+            rel="stylesheet" 
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
+            integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" 
+            crossorigin="anonymous">
+        <link 
         rel="stylesheet" 
         href="src/style.css">
-    <title>Weather App</title>
-</head>
-<body>
-    <div class="container">
-        <div class="Chocolate-Weather-App">
-            <h1>
-                Toronto
-            </h1>
-            <ul>
-                <li>
-                Sunday 15:00
-                </li>
-                <li>
-                Mostly sunny
-                </li>
-            </ul>
-            <div class="row">
-                <div class="col-6">
-                    <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="Mostly sunny">   
-                    32°C | °F
+        <title>Weather App</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="Chocolate-Weather-App-Wrapper">
+                <div class="Chocolate-Weather-App">
+                    <div class="overview">
+                        <h1>
+                            Toronto
+                        </h1>
+                        <ul>
+                            <li>
+                            Sunday 15:00
+                            </li>
+                            <li>
+                            Mostly sunny
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="clearfix weather-temperature">
+                                <img 
+                                src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" 
+                                alt="Mostly sunny"
+                                class="float-left"
+                                />
+                                <div class="float-left">
+                                    <strong>32</strong><span class="units">°C | <a href="#">°F</a></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <ul>
+                                <li>
+                                Precipitation: 1%
+                                </li>
+                                <li>
+                                Humidity: 43%
+                                </li>
+                                <li>
+                                Wind: 21 km/h
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-6">
-                    <ul>
-                        <li>
-                        Precipitation: 1%
-                        </li>
-                        <li>
-                        Humidity: 43%
-                        </li>
-                        <li>
-                        Wind: 21 km/h
-                        </li>
-                    </ul>
-                </div>
-        </div>
-        <small>
-            <a href="https://github.com/abigpige0n/Chocolate-Weather-App" 
-            target="_blank"
-            >Open-source code</a
-                > by Sarah Lefebvre
-        </small>
-    </div>
-</div>
-    <script src="src/app.js"></script>
-</body>
+                <small>
+                    <a 
+                        href="https://github.com/abigpige0n/Chocolate-Weather-App" 
+                        target="_blank"
+                        >Open-source code</a
+                    > by Sarah Lefebvre
+                </small>
+            </div>       
+        </div>    
+        <script src="src/app.js"></script>
+    </body>
 </html>
