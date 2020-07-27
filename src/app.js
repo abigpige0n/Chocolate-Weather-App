@@ -23,18 +23,20 @@ function formatDate(timestamp) {
 
 function displayTemperature(response) {
     let descriptionElement = document.querySelector("#description");
-    descriptionElement.innerHTML = response.data.weather[0].description;
     let cityElement = document.querySelector("#city");
-    cityElement.innerHTML = response.data.name;
     let temperatureElement = document.querySelector("#temperature");
-    temperatureElement.innerHTML = Math.round(response.data.main.temp);
     let humidityElement = document.querySelector("#humidity");
-    humidityElement.innerHTML = response.data.main.humidity;
     let windElement = document.querySelector("#wind");
-    windElement.innerHTML = Math.round(response.data.wind.speed);
     let dateElement = document.querySelector("#date");
-    dateElement.innerHTML = formatDate(response.data.dt * 1000);
     let iconElement = document.querySelector("#icon");
+   
+
+    descriptionElement.innerHTML = response.data.weather[0].description;
+    cityElement.innerHTML = response.data.name;
+    temperatureElement.innerHTML = Math.round(response.data.main.temp);
+    humidityElement.innerHTML = response.data.main.humidity;
+    windElement.innerHTML = Math.round(response.data.wind.speed);
+    dateElement.innerHTML = formatDate(response.data.dt * 1000);
     iconElement.setAttribute(
         "src",
         `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -42,6 +44,7 @@ function displayTemperature(response) {
     iconElement.setAttribute(
         "alt", response.data.weather[0].description);
 }
+
 
 function search(city) {
     let apiKey = "e97a29dafab1111956594c069c61f40c"
@@ -56,7 +59,20 @@ function handleSubmit(event) {
     console.log(cityInputElement.value);
 }
 
-search("Toronto")
+function displayFahrenheitTemperature(event) {
+    event.preventDefault();
+    let fahrenheitTemperature = (28 * 9 / 5) + 32;
+    alert(fahrenheitTemperature);
+    let temperatureElement = document.querySelector("#temperature");
+    temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+let celsiusTemperature = null;
 
 let form=document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+search("Toronto")
