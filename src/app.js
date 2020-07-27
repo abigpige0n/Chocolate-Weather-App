@@ -43,9 +43,20 @@ function displayTemperature(response) {
         "alt", response.data.weather[0].description);
 }
 
-let apiKey = "e97a29dafab1111956594c069c61f40c"
-let city = "Toronto"
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
+function search(city) {
+    let apiKey = "e97a29dafab1111956594c069c61f40c"
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
+    axios.get(apiUrl).then(displayTemperature);
+}
 
+function handleSubmit(event) {
+    event.preventDefault();
+    let cityInputElement = document.querySelector("#city-input");
+    search(cityInputElement.value);
+    console.log(cityInputElement.value);
+}
 
-axios.get(apiUrl).then(displayTemperature);
+search("Toronto")
+
+let form=document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
